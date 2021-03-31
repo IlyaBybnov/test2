@@ -40,9 +40,24 @@ window.addEventListener('scroll', function(){
 })
 
 
+// начало (прячем блоки для мобильной версии)
 const parent_original = document.querySelector('.social-nets');
 const parent = document.querySelector('.header__nav');
 const item = document.querySelector('.social-nets__list');
+
+const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  if (viewport_width <= 1150) {
+    if (!item.classList.contains('done')) {
+      parent.insertBefore(item, parent.children[1]);
+      item.classList.add('done');
+    }
+    } else {
+      if (item.classList.contains('done')) {
+        parent_original.insertBefore(item, parent_original.children[2]);
+        item.classList.remove('done');
+    }
+  }
+
 window.addEventListener('resize', function (event) {
   const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
   //alert(viewport_width);
@@ -58,3 +73,4 @@ window.addEventListener('resize', function (event) {
     }
   }
 });
+// конец (прячем блоки для мобильной версии)
