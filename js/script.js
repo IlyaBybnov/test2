@@ -2,10 +2,86 @@ jQuery(function($){
     "use strict";
 
     $('.burger').click(function(event){
-      $('.burger, .header__nav').toggleClass('active');
+      $('.burger, .header__nav, .header__top').toggleClass('active');
       $('body').toggleClass('lock');
 
       
+    });
+
+    $('.shop-row-top').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 3000,
+
+      arrows: true,
+      dots: false,
+      appendArrows: $('.shop-row-top__slider-arrow'),
+      prevArrow: $('.shop-row-top__arrow-left'),
+      nextArrow: $('.shop-row-top__arrow-right'),
+      responsive: [
+        {
+          breakpoint: 1150,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 450,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
+    });
+
+    $('.shop-row-bottom').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      autoplaySpeed: 3000,
+
+      arrows: true,
+      dots: false,
+      appendArrows: $('.shop-row-bottom__slider-arrow'),
+      prevArrow: $('.shop-row__arrow-left'),
+      nextArrow: $('.shop-row__arrow-right'),
+      responsive: [
+        {
+          breakpoint: 1150,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 700,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+          }
+        },
+        {
+          breakpoint: 450,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          }
+        }
+      ]
     });
     
     /*
@@ -38,6 +114,7 @@ window.addEventListener('scroll', function(){
     const headerTop = document.querySelector(".header__top");
     headerTop.classList.toggle("sticky", window.scrollY > 0);
 })
+
 
 
 // начало (прячем блоки для мобильной версии)
